@@ -11,6 +11,8 @@ This is a work in progress.
 
 ## Setup
 
+On your `WORKSPACE` file add this:
+
 ```python
 git_repository(
     name = "com_github_pedrokiefer_stm8_rules",
@@ -21,6 +23,22 @@ git_repository(
 load("@com_github_pedrokiefer_stm8_rules//sdcc:rules.bzl", "sdcc_repositories")
 
 sdcc_repositories()
+```
+
+On your BUILD use something like this:
+
+```python
+load("@com_github_pedrokiefer_stm8_rules//sdcc:rules.bzl", "stm8_library", "stm8_binary")
+
+stm8_library(
+    name = "lib",
+    srcs = ["some_source.c", "main.c"]
+)
+
+stm8_binary(
+    name = "firmware",
+    deps = [":lib"],
+)
 ```
 
 ## stm8_library
