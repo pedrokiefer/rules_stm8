@@ -18,7 +18,7 @@ git_repository(
     tag = "0.0.1",
 )
 
-load("@com_github_pedrokiefer_stm8_rules//:sdcc:rules.bzl", "sdcc_repositories")
+load("@com_github_pedrokiefer_stm8_rules//sdcc:rules.bzl", "sdcc_repositories")
 
 sdcc_repositories()
 ```
