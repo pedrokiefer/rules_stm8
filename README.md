@@ -1,5 +1,9 @@
 # STM8 Rules for [Bazel](https://bazel.build) using [sdcc](http://sdcc.sourceforge.net/)
 
+Some rules for stm8 using sdcc compiler. Inspired on Sergio Campamá [MSP430 rules](https://github.com/sergiocampama/bazel-msp430).
+
+This is a work in progress.
+
 ## Rules
 
 * [stm8_library](#stm8_library)
