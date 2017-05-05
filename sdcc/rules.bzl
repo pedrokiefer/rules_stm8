@@ -90,8 +90,10 @@ def _stm8_binary_impl(ctx):
    )
 
    hex_output = ctx.new_file(ctx.label.name + ".hex")
+   other_action_inputs = list([link_output])
+   other_action_inputs.extend(ctx.files._compiler_support)
    ctx.action(
-       inputs = [link_output],
+       inputs = other_action_inputs,
        outputs = [hex_output],
        mnemonic = "PackSTM8Hex",
        command = "{} {} > {}".format(ctx.executable._pack_ihx.path, link_output.path, hex_output.path)
