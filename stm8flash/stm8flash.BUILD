@@ -1,0 +1,23 @@
+cc_binary(
+    name = "stm8flash",
+    srcs = [
+        "byte_utils.c",
+        "byte_utils.h",
+        "error.h",
+        "ihex.c",
+        "ihex.h",
+        "main.c",
+        "pgm.h",
+        "srec.c",
+        "srec.h",
+        "stlink.c",
+        "stlink.h",
+        "stlinkv2.c",
+        "stlinkv2.h",
+        "stm8.c",
+        "stm8.h",
+        "try.h",
+        "utils.h",
+    ],
+    deps = ["@info_libusb_libusb//:libusb"],
+)

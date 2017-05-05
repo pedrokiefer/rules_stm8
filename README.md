@@ -15,12 +15,12 @@ On your `WORKSPACE` file add this:
 
 ```python
 git_repository(
-    name = "com_github_pedrokiefer_stm8_rules",
-    remote = "https://github.com/pedrokiefer/stm8_rules.git",
+    name = "com_github_pedrokiefer_rules_stm8",
+    remote = "https://github.com/pedrokiefer/rules_stm8.git",
     tag = "0.0.1",
 )
 
-load("@com_github_pedrokiefer_stm8_rules//sdcc:rules.bzl", "sdcc_repositories")
+load("@com_github_pedrokiefer_rules_stm8//sdcc:rules.bzl", "sdcc_repositories")
 
 sdcc_repositories()
 ```
@@ -28,7 +28,7 @@ sdcc_repositories()
 On your BUILD use something like this:
 
 ```python
-load("@com_github_pedrokiefer_stm8_rules//sdcc:rules.bzl", "stm8_library", "stm8_binary")
+load("@com_github_pedrokiefer_rules_stm8//sdcc:rules.bzl", "stm8_library", "stm8_binary")
 
 stm8_library(
     name = "lib",
@@ -51,5 +51,21 @@ stm8_library(name, srcs, hdrs, deps, defines, copts)
 
 ```python
 stm8_binary(name, deps)
+```
+
+## stm8flash tool
+
+You can build the stm8flash tool. Needed system dependency: libudev - on ubuntu that's libudev-dev
+
+On your `WORKSPACE` file, add this:
+
+```python
+load("@com_github_pedrokiefer_rules_stm8//stm8flash:rules.bzl", "stm8flash_repositories")
+
+stm8flash_repositories()
+```
+
+```shell
+bazel build @com_github_vdudouyt_stm8flash//:stm8flash
 ```
 
