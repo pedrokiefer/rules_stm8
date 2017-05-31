@@ -27,7 +27,7 @@ def _sdcc_compile_impl(ctx):
             inputs = action_inputs,
 	    mnemonic = "CompileSTM8Source",
             executable = ctx.executable._compiler,
-            arguments = ["-V", "-mstm8", "-c", "--std-c99", source.path, "-o", obj.path],
+            arguments = ["-V", "-mstm8", "-c", "--std-c99", "-DSTM8S207", source.path, "-o", obj.path],
             )
 	output_objs.append(obj)
 	output_objs_link.append(obj_link)
